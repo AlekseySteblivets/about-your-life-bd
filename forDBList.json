@@ -1,0 +1,25 @@
+[
+  {
+    "navigatinList": ["home", "portpholio", "price", "video", "contact"],
+    "portpholioList": ["wedding", "couples", "family", "films"],
+    "aboutMeText": "Hello . My name is Olya. I'm filming about your life as it really is.  The real you in life and the most important stories that happen to you and your family and friends. It is these memories that make us happy even after many years when you look at the photos. Whether it's a wedding or a family, an individual or a reportage of your event - all these shootings will be unlike any other because you are a special person. My works  will tell the story of me.",
+    "photos": [
+      {
+        "name": "hero",
+        "photo": [0, 1, 2, 3]
+      },
+      {
+        "name": "heroPortpholio",
+        "photo": [0, 1, 2, 3]
+      },
+      {
+        "name": "aboutMe",
+        "photo": [0, 1, 2, 3]
+      },
+      {
+        "name": "newWorks",
+        "photo": [0, 1, 2, 3]
+      }
+    ]
+  }
+]

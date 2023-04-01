@@ -1,21 +1,29 @@
-const mongoose = require("mongoose");
 const express = require("express");
-const dotenv = require("dotenv");
+const logger = require("morgan");
+//это мидлвара которая в консоль выводит сообщение, куда и какой запрос был.
 const cors = require("cors");
-dotenv.config();
+require("dotenv").config();
+
+const photosRouter = require("./routes/api/photos");
 
 const app = express();
+const formatsLogger = app.get("env") === "development" ? "dev" : "common";
+
+app.use(logger(formatsLogger));
 
 app.use(cors());
 app.use(express.json());
 
-const { DB_HOST, PORT = 3000 } = process.env;
+app.use("/api/photos", photosRouter);
 
-mongoose
-  .connect(DB_HOST)
-  .then(() => app.listen(PORT, console.log(4444)))
-  .catch((error) => {
-    console.log(error.message);
-    process.exit(1);
-  });
-console.log(123);
+app.use((req, res) => {
+  res.status(404).json({ message: "Not found*******" });
+});
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  const { code = 500 } = err;
+  res.status(code).json({ message: `${err.message} + code500*******` });
+});
+
+module.exports = { app };
